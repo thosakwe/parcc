@@ -1,0 +1,16 @@
+# Lexer definitions
+token NUMBER: /-?[0-9]+(\.[0-9]+)?/;
+token TIMES: '*';
+token DIV: '/';
+token PLUS: '+';
+token MINUS: '-';
+
+# Parser rule definitions
+node Expression: switch {
+  Literal: NUMBER;
+  Multiplication: Expression TIMES Expression;
+  Division: Expression DIV Expression;
+  Addition: Expression PLUS Expression;
+  Subtraction: Expression MINUS Expression;
+  Parenthesized: '(' Expression ')';
+}
