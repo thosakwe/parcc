@@ -1,3 +1,3 @@
-add_executable(parcc main.cpp ast/Definition.h ast/Grammar.cpp ast/Grammar.h)
+add_executable(parcc main.cpp ast/Definition.h ast/Grammar.cpp ast/Grammar.h ast/TokenDefinition.cpp ast/TokenDefinition.h)
 
 install(TARGETS parcc RUNTIME DESTINATION bin)

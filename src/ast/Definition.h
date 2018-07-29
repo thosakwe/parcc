@@ -11,7 +11,9 @@ namespace parcc
 {
     class Definition
     {
+        virtual bool IsTokenDefinition() = 0;
 
+        virtual bool IsNodeDefinition() = 0;
     };
 }
 
