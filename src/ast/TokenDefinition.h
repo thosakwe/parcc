@@ -7,6 +7,7 @@
 #ifndef PARCC_TOKENDEFINITION_H
 #define PARCC_TOKENDEFINITION_H
 
+#include "Alternative.h"
 #include "Definition.h"
 
 namespace parcc
