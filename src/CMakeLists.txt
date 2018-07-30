@@ -1,7 +1,7 @@
 add_executable(parcc
         main.cpp
         parcc_grammar/ParccLexer.cpp parcc_grammar/ParccLexer.h
-        parcc_grammar/ParccParser.cpp parcc_grammar/ParccParser.h)
+        parcc_grammar/ParccParser.cpp parcc_grammar/ParccParser.h LexerGenerator.cpp LexerGenerator.h)
 
 find_library(ANTLR4 antlr4-runtime)
 target_link_libraries(parcc ${ANTLR4})

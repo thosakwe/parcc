@@ -9,6 +9,7 @@
 #include <iostream>
 #include "parcc_grammar/ParccLexer.h"
 #include "parcc_grammar/ParccParser.h"
+#include "LexerGenerator.h"
 
 int main(int argc, const char **argv) {
     const char *filename = nullptr;
@@ -72,6 +73,31 @@ int main(int argc, const char **argv) {
 
     if (grammar->definition().empty()) {
         std::cerr << "fatal error: grammar is empty" << std::endl;
+    }
+
+    parcc::LexerGenerator *generator = nullptr;
+    bool isFile = true;
+
+    if (outputFilename == nullptr) {
+        isFile = false;
+        generator = new parcc::LexerGenerator(std::cout);
+    } else {
+        std::ofstream ofs(outputFilename);
+
+        if (!ofs) {
+            std::cerr << "fatal error: could not write output file" << std::endl;
+            return 1;
+        }
+
+        generator = new parcc::LexerGenerator(ofs);
+    }
+
+    generator->Generate();
+
+    if (isFile) {
+        auto *fstream = (std::ofstream *) &(generator->GetStream());
+        fstream->flush();
+        fstream->close();
     }
 
     return 0;
