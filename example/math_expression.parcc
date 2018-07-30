@@ -13,4 +13,4 @@ node Expression: switch {
   Addition: Expression PLUS Expression;
   Subtraction: Expression MINUS Expression;
   Parenthesized: '(' Expression ')';
-}
+};
